@@ -42,7 +42,6 @@ for i in dt["PERIOD"]:
         years = np.append(years, i)
 
 # берём колонки с информацией по импорту/эспорту и годами
-# npdt = dt.values[:, 0:2]
 inf = dt.values[:, 0]
 date = dt.values[:, 1]
 reg = np.array(dt["REGION_S"])
@@ -113,7 +112,7 @@ plt.savefig("total_exp_imp.png")    # сохраняем график в вид�
 plt.show()
 
 # создаём подграфики импорта и экспорта по годам
-plt.suptitle("export and import in years")
+plt.suptitle("export and import by year")
 plt.subplots_adjust(hspace=0.4)     # вертикальный отступ между графиками
 plt.subplots_adjust(wspace=0.3)     # горизонтальный отступ между графиками
 plt.subplots_adjust(top=0.86)       # отступ от заголовка
@@ -148,7 +147,7 @@ plt.show()
 
 # создаем график импорта и экспорта по регионам
 fig, ax = plt.subplots()
-plt.title("import and export in regions")
+plt.title("import and export across regions")
 
 ind = np.array([x*2 for x in range(len(regions))])           # задаём позиции для пар столбцов
 width = 0.75                                                 # задаём ширину столбцов
@@ -169,4 +168,3 @@ autolabel(rects2)
 plt.legend()
 plt.savefig("imp_exp_in_regions.png")       # сохраняем график в виде png
 plt.show()
-
